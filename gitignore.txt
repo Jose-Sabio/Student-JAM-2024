@@ -4,3 +4,4 @@ Logs
 Temp
 Assembly-CSharp.csproj
 Super Granny Chronicles.sln
+.vs
