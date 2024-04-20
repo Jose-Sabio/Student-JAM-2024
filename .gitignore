@@ -1,6 +1,6 @@
-/.vscode
-/Library
-/Logs
-/Temp
+.vscode
+Library
+Logs
+Temp
 Assembly-CSharp.csproj
 Super Granny Chronicles.sln
