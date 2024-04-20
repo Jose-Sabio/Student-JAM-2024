@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bala
-  - Enemigo
   layers:
   - Default
   - TransparentFX
@@ -13,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Huevos
+  - Disparos
+  - Jugador
   - 
   - 
   - 
