@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 550781266609574707}
   - component: {fileID: 3745428376201947615}
   - component: {fileID: -1371292523123800756}
-  m_Layer: 0
+  - component: {fileID: 4747801703754340904}
+  - component: {fileID: 6247784242166638810}
+  m_Layer: 6
   m_Name: huevo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,4 +113,54 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
+--- !u!114 &4747801703754340904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098685753780954584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c60eea5f7aaabe4fa4a47e2c51bb2a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAlColisionar: {fileID: 3625043607559282579, guid: ce2516612a8280d4082e7fa94eeb8630, type: 3}
+  velocidadJugadorReducida: 0.5
+  duracionParpadeo: 1.09
+--- !u!70 &6247784242166638810
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098685753780954584}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0

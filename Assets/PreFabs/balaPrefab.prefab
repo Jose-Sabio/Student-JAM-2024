@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6806466918758137782}
   - component: {fileID: 1192293161438442140}
   - component: {fileID: 210540749229940363}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: balaPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
