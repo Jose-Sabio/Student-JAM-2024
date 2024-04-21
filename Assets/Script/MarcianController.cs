@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 
 public class MarcianController : MonoBehaviour
 {
@@ -7,28 +7,36 @@ public class MarcianController : MonoBehaviour
     public GameObject balaPrefab; // Prefab de la bala
     public float tiempoEntreDisparos = 1f; // Tiempo entre cada disparo
     public Transform direccionDisparo; // Dirección del disparo
+    public float distanciaMinimaParaDisparar = 5f; // Distancia mínima para disparar al jugador
     private float tiempoUltimoDisparo; // Tiempo del último disparo
 
     private Vector3 posicionInicio;
     private bool movimientoAFin;
 
-    private int vida;
-    private int daño;
+    private Transform jugador; // Referencia al jugador
 
     void Start()
     {
         posicionInicio = transform.position;
         movimientoAFin = true;
         tiempoUltimoDisparo = Time.time;
+
+        // Busca al jugador al inicio
+        jugador = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
         MoverEnemigo();
-        if (Time.time - tiempoUltimoDisparo >= tiempoEntreDisparos)
+
+        // Dispara solo si el jugador está a una distancia mínima
+        if (Vector3.Distance(transform.position, jugador.position) <= distanciaMinimaParaDisparar)
         {
-            Disparar();
-            tiempoUltimoDisparo = Time.time;
+            if (Time.time - tiempoUltimoDisparo >= tiempoEntreDisparos)
+            {
+                Disparar();
+                tiempoUltimoDisparo = Time.time;
+            }
         }
     }
 

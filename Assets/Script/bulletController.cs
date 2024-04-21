@@ -3,6 +3,21 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     public int damage = 1; // Daño que causa la bala al jugador
+    public AnimationClip animacion; // Animación que se reproducirá al crearse la bala
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        // Obtener el componente Animator
+        animator = GetComponent<Animator>();
+
+        // Reproducir la animación si está asignada
+        if (animator != null && animacion != null)
+        {
+            animator.Play(animacion.name);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
