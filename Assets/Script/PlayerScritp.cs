@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody2D fisica;
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     public GameObject prefabProyectil;
     public float velocidadNormal;
@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         fisica = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        
     }
 
     private void FixedUpdate()
@@ -45,6 +45,7 @@ public class PlayerScript : MonoBehaviour
         // Cambiar la dirección del sprite
         if (fisica.velocity.x > 0)
             sprite.flipX = false;
+
         else if (fisica.velocity.x < 0)
             sprite.flipX = true;
 

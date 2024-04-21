@@ -10,6 +10,13 @@ public class Proyectil : MonoBehaviour
     // Tiempo después del cual se destruirá el proyectil
     public float tiempoDestruccion = 5f;
 
+    void Update () {
+       
+             var rot = transform.rotation;
+            rot.x += Time.deltaTime * 30;
+            transform.rotation = rot;
+        
+        }
     // Método que se llama cuando el collider del proyectil colisiona con otro collider
     private void OnTriggerEnter2D(Collider2D other)
     {
