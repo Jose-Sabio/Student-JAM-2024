@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaNave.unity
     guid: c782d2a520ba1fb4282d154dc504b9c4
+  - enabled: 1
+    path: Assets/Scenes/EscenaHistoria.unity
+    guid: 1b6df8621cffb924ab5cf1f1300b7c53
+  - enabled: 1
+    path: Assets/Scenes/Nivel1.unity
+    guid: c0fdb99784c18d54a973604c9ccd88b0
+  - enabled: 1
+    path: Assets/Scenes/Nivel2.unity
+    guid: dc70f03392bd74b4db22b83a584f8b65
   m_configObjects: {}
