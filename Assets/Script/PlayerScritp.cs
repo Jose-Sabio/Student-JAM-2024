@@ -36,7 +36,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         // Codigo salto
-        if (Input.GetKeyDown(KeyCode.Space) && !TocarSuelo())
+        if (Input.GetKeyDown(KeyCode.Space) && TocarSuelo())
         {
             fisica.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             audioSource.PlayOneShot(saltoSfx);
