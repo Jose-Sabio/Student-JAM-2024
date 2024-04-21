@@ -11,17 +11,14 @@ public class BirdController : MonoBehaviour
     private Vector3 posicionInicio;
     private bool movimientoAFin;
 
-    private int vida;
-    private int daño;
-
-    void Start()
+    private void Start()
     {
         posicionInicio = transform.position;
         movimientoAFin = true;
         tiempoUltimoSoltado = Time.time;
     }
 
-    void Update()
+    private void Update()
     {
         MoverEnemigo();
         if (Time.time - tiempoUltimoSoltado >= tiempoEntreSoltados)

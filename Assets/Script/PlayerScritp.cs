@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,11 @@ public class PlayerScript : MonoBehaviour
     public AudioClip saltoSfx;
     public AudioClip disparosfx;
 
+    public int vidas;
+
     private AudioSource audioSource;
+    private float velocidadOriginal;
+    private float velocidadOriginalRun;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -23,7 +28,9 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         fisica = GetComponent<Rigidbody2D>();
-        
+        sprite = GetComponent<SpriteRenderer>();
+        velocidadOriginal = velocidadNormal;
+        velocidadOriginalRun = velocidadSprint;
     }
 
     private void FixedUpdate()
@@ -85,6 +92,24 @@ public class PlayerScript : MonoBehaviour
         // Desactivar la gravedad del proyectil para que no caiga
         rbProyectil.gravityScale = 0f;
         audioSource.PlayOneShot(disparosfx);
+    }
+
+    public void Ralentizar(float factorRalentizacion)
+    {
+        velocidadNormal *= factorRalentizacion; // Ralentizar multiplicando la velocidad actual por un factor
+        velocidadSprint *= factorRalentizacion;
+    }
+
+    public void RestaurarVelocidad()
+    {
+        velocidadNormal = velocidadOriginal; // Ralentizar multiplicando la velocidad actual por un factor
+        velocidadSprint = velocidadOriginalRun;
+    }
+
+    public void quitarVida()
+    {
+        vidas--;
+
     }
 
 }
