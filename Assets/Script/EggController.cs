@@ -6,7 +6,7 @@ public class EggController : MonoBehaviour
     public Sprite spriteAlColisionar; // Sprite a cambiar al colisionar con el suelo
     public float velocidadJugadorReducida = 0.5f; // Velocidad reducida del jugador al tocar el objeto
     public float duracionParpadeo = 1f; // Duración del parpadeo
-
+    public float tiempoEsperaAntesDelParpadeo = 1f; // Tiempo de espera antes de que comience el parpadeo
 
     private PlayerScript playerScript;
     private bool haColisionado = false;
@@ -26,8 +26,7 @@ public class EggController : MonoBehaviour
         {
             haColisionado = true;
             CambiarSprite();
-            ParpadearYDestruir();
-
+            StartCoroutine(ParpadearYDestruirConEspera());
             // Desactivar gravedad y convertir el collider en trigger
             rb2D.gravityScale = 0f;
             eggCollider.isTrigger = true;
@@ -38,12 +37,10 @@ public class EggController : MonoBehaviour
             playerScript.quitarVida();
             Destroy(gameObject);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.CompareTag("Player"))
         {
             RalentizarJugador();
@@ -61,7 +58,6 @@ public class EggController : MonoBehaviour
         }
     }
 
-
     private void CambiarSprite()
     {
         if (spriteAlColisionar != null)
@@ -70,6 +66,7 @@ public class EggController : MonoBehaviour
             if (spriteRenderer != null)
             {
                 spriteRenderer.sprite = spriteAlColisionar;
+                spriteRenderer.transform.localScale = new Vector3(2f, 2f, 1f); // Ajusta los valores según lo necesario
             }
         }
     }
@@ -82,9 +79,10 @@ public class EggController : MonoBehaviour
         }
     }
 
-
-    private void ParpadearYDestruir()
+    private IEnumerator ParpadearYDestruirConEspera()
     {
+        yield return new WaitForSeconds(tiempoEsperaAntesDelParpadeo);
+
         StartCoroutine(ParpadearYDestruirCoroutine());
     }
 
