@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c930d9c4028edf4ba69c81da7631c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 7444346220721032910, guid: 8a6395bb8140787439d28fe4f383c930, type: 3}
   tiempoDestruccion: 5
 --- !u!50 &-8935102365362267764
 Rigidbody2D:

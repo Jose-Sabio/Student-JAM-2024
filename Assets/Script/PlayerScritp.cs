@@ -20,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
+
     void Start()
     {
         fisica = GetComponent<Rigidbody2D>();
@@ -50,7 +51,6 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            
             Disparar();
         }
     }
@@ -85,5 +85,4 @@ public class PlayerScript : MonoBehaviour
         rbProyectil.gravityScale = 0f;
         audioSource.PlayOneShot(disparosfx);
     }
-
 }
