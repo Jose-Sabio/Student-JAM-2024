@@ -5,9 +5,20 @@ public class EggController : MonoBehaviour
 {
     public Sprite spriteAlColisionar; // Sprite a cambiar al colisionar con el suelo
     public float velocidadJugadorReducida = 0.5f; // Velocidad reducida del jugador al tocar el objeto
-    public float duracionParpadeo = 1f; // Duración del parpadeo
+    public float duracionParpadeo = 1f; // DuraciÃ³n del parpadeo
 
+
+    private PlayerScript playerScript;
     private bool haColisionado = false;
+    private Rigidbody2D rb2D;
+    private Collider2D eggCollider;
+
+    private void Start()
+    {
+        rb2D = GetComponent<Rigidbody2D>();
+        eggCollider = GetComponent<Collider2D>();
+        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -15,14 +26,41 @@ public class EggController : MonoBehaviour
         {
             haColisionado = true;
             CambiarSprite();
-            Invoke("ParpadearYDestruir", duracionParpadeo);
+            ParpadearYDestruir();
+
+            // Desactivar gravedad y convertir el collider en trigger
+            rb2D.gravityScale = 0f;
+            eggCollider.isTrigger = true;
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerScript.quitarVida();
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("Player"))
+        {
             RalentizarJugador();
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (playerScript != null)
+            {
+                playerScript.RestaurarVelocidad(); // Restaurar la velocidad original del jugador
+            }
+        }
+    }
+
 
     private void CambiarSprite()
     {
@@ -38,12 +76,12 @@ public class EggController : MonoBehaviour
 
     private void RalentizarJugador()
     {
-        Rigidbody2D rbJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        if (rbJugador != null)
+        if (playerScript != null)
         {
-            rbJugador.velocity *= velocidadJugadorReducida;
+            playerScript.Ralentizar(velocidadJugadorReducida); // Ralentizar al jugador a la mitad de su velocidad
         }
     }
+
 
     private void ParpadearYDestruir()
     {
