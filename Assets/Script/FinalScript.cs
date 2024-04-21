@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HistoriaScritp : MonoBehaviour
+public class FinalScript : MonoBehaviour
 {
     public Sprite newSprite; // Sprite que se asignará después de 10 segundos
     public Sprite terceraimagen; // Tercer sprite que se asignará después de 15 segundos
@@ -36,7 +36,7 @@ public class HistoriaScritp : MonoBehaviour
          if (timer >= 20f)
         {
             // Cargar la escena "nivel1"
-            SceneManager.LoadScene("Nivel1");
+            SceneManager.LoadScene("EscenaInicio");
         }
     }
 }
